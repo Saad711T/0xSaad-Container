@@ -1,6 +1,12 @@
 ### Welcome to website
 A sandbox website for random personal things.
-<img width="694" height="457" alt="image" src="https://github.com/user-attachments/assets/a1bdaf09-f3d8-4499-8757-810b174117cf" alt="cat image"/>
+<style>
+.headerim {
+  display: block;
+  margin: auto;
+}
+</style>
+<img width="694" height="457" alt="image" src="https://github.com/user-attachments/assets/a1bdaf09-f3d8-4499-8757-810b174117cf" alt="cat image" class="headerim"/>
 
 #### مشاريعي / My Projects
 - [LibraryDB](https://librarydb.netlify.app) : Mobile Application/Web app for large relational database for books , The tables in this database is : users - books - authors .
