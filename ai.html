@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SaadAI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/aistyle.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="scripts/aiscript.js" defer></script>
+</head>
+<body>
+
+  <div class="navigator-container">
+    <nav class="navigatorpages">
+      <ul>
+        <li><a href="index.html">Main Page</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <div class="chat-container">
+      <h2>🤖 SaadAI Chat Assistant</h2>
+
+      <div class="chat-log" id="chatLog"></div>
+
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="اكتب سؤالك هنا عن الكتب..." onkeydown="if(event.key==='Enter') sendMessage();">
+        <button onclick="sendMessage()">إرسال</button>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

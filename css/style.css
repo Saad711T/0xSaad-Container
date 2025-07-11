@@ -60,3 +60,21 @@
 .navigatorpages li a:hover {
   background-color: #0056b3;
 }
+
+.chat-container {
+  max-width: 700px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+#user-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
