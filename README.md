@@ -7,3 +7,11 @@
 
 -----
 
+1. [Data science topics](datasciencetopics.html)
+###### Preview :
+**This just notes about my ds study**
+##### Useful courses :
+- <a href = "https://www.coursera.org/professional-certificates/ibm-data-science">IBM Data Science</a>
+- <a href = "https://www.coursera.org/professional-certificates/google-data-analytics">Google Data Analytics</a>
+
+2. [Exploring the 2017 Stack Overflow Survey: Top Languages and Developer Salaries](https://saadthelegend.netlify.app/articles/surveypost)
