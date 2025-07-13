@@ -11,9 +11,6 @@
 ###### Preview :
 **This just notes about my ds study**
 ![image](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230602113310/Neural-Networks-Architecture.png)
-##### Useful courses :
-
-<br>
 
 2. [Exploring the 2017 Stack Overflow Survey: Top Languages and Developer Salaries](https://saadthelegend.netlify.app/articles/surveypost)
 ###### Preview :
