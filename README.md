@@ -7,7 +7,7 @@
 
 -----
 
-1. [Data science topics](datasciencetopics.html)
+1. [Data science topics](blogs/datasciencetopics.html)
 ###### Preview :
 **This just notes about my ds study**
 ##### Useful courses :
