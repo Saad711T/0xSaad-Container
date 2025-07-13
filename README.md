@@ -1,12 +1,8 @@
-### Welcome to website
-A sandbox website for random personal things.
-<img width="694" height="457" alt="image" src="https://github.com/user-attachments/assets/a1bdaf09-f3d8-4499-8757-810b174117cf" alt="cat image" class="headerim"/>
+### Welcome to My Blog
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/saadalmalki711/)
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/creator_sai711)
+[![Website](https://img.shields.io/badge/Website-%2312100E.svg?style=for-the-badge&logo=google-chrome&logoColor=white)](https://saadthelegend.com)
+My Test blog posts is below this :
 
-#### مشاريعي / My Projects
-- [LibraryDB](https://librarydb.netlify.app) : Mobile Application/Web app for large relational database for books , The tables in this database is : users - books - authors .
-- [HospitalDB](https://github.com/Saad711T/HospitalDB) : HospitalDB is database using for organize and management medical things in hospital .
-- [Volx App](https://blockelteam.itch.io/volx-library) : Volx App / Volx Library is Social Media app established in Mar 2017 and under-development to Apr 2022 , The app become later to Blogging mobile app. (Windows version coming soon)
-- [SaadOS](https://github.com/Saad711T/SaadOS) : Indie Simple Operation System written in C++ language , This OS will become to a linux distro based on Ubuntu.
-- [Database Connector](https://github.com/Saad711T/DatabaseConnector) : Database Connector is software built in python-tkinter to show SQL Databases in your PC .
-- [My official website](https://saadthelegend.netlify.app) : My Official Portfolio/Blog
-- [StackOverflow Devs Survey 2024 Analysis](https://github.com/Saad711T/Stackoverflow-2024-Survey-Analysis) : Analyzing the survey for Stackoverflow developers in 2024.
+-----
+
