@@ -29,6 +29,8 @@
       background-color: white;
       display: flex;
       flex-direction: column;
+      text-align: center;
+      font-family: 'Dubai', sans-serif, Verdana, sans-serif;
     }
 
     .game-image {

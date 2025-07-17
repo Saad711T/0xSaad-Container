@@ -30,7 +30,21 @@
     color: #333;
     font-size: 2rem;
     margin-bottom: 1rem;
+    background-color: rgba(13, 156, 200, 0.1) ;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-family: 'Dubai', sans-serif, Verdana, sans-serif;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+
+    .heading2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
 
 .navigator-container {
   display: flex;
@@ -48,14 +62,17 @@
 
 .navigatorpages li a {
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 14px 28px;
   background-color: #007bff;
   color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: bold;
+  font-size: 1.7rem;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
 }
+
 
 .navigatorpages li a:hover {
   background-color: #0056b3;
