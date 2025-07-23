@@ -15,15 +15,20 @@
       color: #0066cc;
     }
 
-  .headname {
-    color : rgb(39, 99, 228);
-    text-align:center;
-    display: block;
-    margin: 1rem 0;
-    font-size: 1.2rem;
-    text-decoration: none;
-    font-weight: bold;
-  }
+.headname {
+  color: rgb(39, 99, 228);
+  text-align: center;
+  display: inline-block;
+  margin: 1rem auto;
+  font-size: 1.7rem;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 14px 28px;
+}
 
   .heading {
     text-align: center;
@@ -113,4 +118,3 @@
   padding: 0 1rem;
   font-family: Dubai, sans-serif, Verdana, sans-serif;
 }
-
