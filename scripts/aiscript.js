@@ -1,31 +1,35 @@
-function sendMessage()
-{
+async function sendMessage() {
   const input = document.getElementById("userInput");
   const chatLog = document.getElementById("chatLog");
   const message = input.value.trim();
   if (!message) return;
-
-
 
   const userDiv = document.createElement("div");
   userDiv.className = "chat-message user-message";
   userDiv.textContent = message;
   chatLog.appendChild(userDiv);
 
-
   input.value = "";
-
-
 
   const aiDiv = document.createElement("div");
   aiDiv.className = "chat-message ai-message";
   aiDiv.textContent = "جاري التفكير...";
-
   chatLog.appendChild(aiDiv);
 
+  try {
+    const response = await fetch("https://saadcontainerai.onrender.com/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ prompt: message })
+    });
 
+    const data = await response.json();
+    aiDiv.textContent = data.response;
 
-  setTimeout(() => {
-    aiDiv.textContent = `سؤالك: "${message}" - فشل الإتصال يخوي`;
-  }, 1000);
+  } catch (error) {
+    aiDiv.textContent = "فشل الاتصال بالسيرفر يخوي";
+    console.error(error);
+  }
 }
