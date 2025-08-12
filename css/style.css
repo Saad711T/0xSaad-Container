@@ -118,3 +118,16 @@
   padding: 0 1rem;
   font-family: Dubai, sans-serif, Verdana, sans-serif;
 }
+
+#figmabutton {
+  text-align: center;
+  font-size: 1.1px;
+  color: #333;
+  background-color: palevioletred;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 2;
+  padding: 0 1rem;
+  font-family: Dubai;
+}
