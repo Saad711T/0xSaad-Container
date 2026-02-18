@@ -1,0 +1,40 @@
+{
+  "name": "mathboard",
+  "displayName": "MathBoard",
+  "description": "Simple drawing whiteboard inside VS Code",
+  "version": "0.0.3",
+  "publisher": "0xSaad",
+  "icon": "t.png",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": ["Education", "Visualization"],
+  "keywords": [
+  "whiteboard",
+  "drawing",
+  "math",
+  "education",
+  "pen",
+  "sketch",
+  "board",
+  "canvas"
+]
+  ,
+  "activationEvents": [
+    "onCommand:mathboard.open"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "mathboard.open",
+        "title": "Open MathBoard"
+      }
+    ]
+  },
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/Saad711T/MathBoard"
+}
+  ,
+  "main": "./extension.js"
+}

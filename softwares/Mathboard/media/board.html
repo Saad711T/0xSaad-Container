@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MathBoard</title>
+
+<link rel="stylesheet" href="style.css">  />
+</head>
+<body>
+
+<div id="toolbar">
+
+    <button class="tool-btn" onclick="setTool('pen')">✏ Pen</button>
+    <button class="tool-btn" onclick="setTool('marker')">🖍 Marker</button>
+    <button class="tool-btn" onclick="setTool('pencil')">📝 Pencil</button>
+    <button class="tool-btn" onclick="setTool('eraser')">🩹 Eraser</button>
+
+    <button class="tool-btn" onclick="fillPage()">🪣 Fill</button>
+
+    <input type="color" id="colorPicker" value="#000000">
+    <input type="range" id="sizePicker" min="1" max="25" value="4">
+
+    <button class="tool-btn" onclick="undo()">↶ Undo</button>
+    <button class="tool-btn" onclick="redo()">↷ Redo</button>
+
+    <button class="tool-btn" onclick="toggleSaveMenu()">💾 Save</button>
+</div>
+
+
+
+
+
+<div id="saveMenu">
+    <div class="save-option" onclick="saveAs('png')">Save as PNG</div>
+    <div class="save-option" onclick="saveAs('jpeg')">Save as JPEG</div>
+    <div class="save-option" onclick="saveAs('webp')">Save as WEBP</div>
+    <div class="save-option" onclick="saveAs('bmp')">Save as BMP</div>
+</div>
+
+<canvas id="board"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #ffffff;
+    font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* ------------------ TOOLBAR ------------------ */
+#toolbar {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffffaa;
+    backdrop-filter: blur(12px);
+    padding: 10px 15px;
+    border-radius: 14px;
+    display: flex;
+    gap: 10px;
+    box-shadow: 0px 4px 18px rgba(0,0,0,0.15);
+    border: 1px solid #e5e5e5;
+}
+
+.tool-btn {
+    border: none;
+    padding: 9px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #f4f4f4;
+    transition: 0.15s;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tool-btn:hover {
+    background: #e0e0e0;
+}
+
+.tool-btn.active {
+    background: #0078ff;
+    color: white;
+    border-color: #0078ff;
+}
+
+input[type="color"],
+input[type="range"] {
+    cursor: pointer;
+}
+
+/* ------------------ SAVE MENU ------------------ */
+#saveMenu {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 160px;
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.15);
+}
+
+.save-option {
+    padding: 8px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: 0.12s;
+    text-align: center;
+}
+
+.save-option:hover {
+    background: #e7e7e7;
+}
+
+/* ------------------ CANVAS ------------------ */
+canvas {
+    cursor: crosshair;
+    background: white;
+}
