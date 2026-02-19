@@ -17,7 +17,7 @@ async function sendMessage() {
   chatLog.appendChild(aiDiv);
 
   try {
-    const response = await fetch("https://saadcontainerai.onrender.com/chat", {
+    const response = await fetch("", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
