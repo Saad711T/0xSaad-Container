@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      const rotateX = -(y - centerY) / 15;
-      const rotateY = (x - centerX) / 15;
+      const rotateX = -(y - centerY) / 7;
+      const rotateY = (x - centerX) / 12;
 
       card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
