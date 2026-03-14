@@ -1,0 +1,137 @@
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 2rem;
+      color: #333;
+    }
+    .box {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      white-space: pre-wrap;
+    }
+    h1 {
+      color: #0066cc;
+    }
+
+.headname {
+  color: rgb(39, 99, 228);
+  text-align: center;
+  display: inline-block;
+  margin: 1rem auto;
+  font-size: 1.7rem;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 14px 28px;
+}
+
+  .heading {
+    background-color: #01645a;
+    padding: 10px;
+    margin-top: -3rem;
+    margin-bottom: 1rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Dubai', sans-serif, Verdana, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    margin-right: -3rem;
+    margin-left: -3rem;
+    color: white;
+  }
+
+    .heading2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+
+.navigator-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.navigatorpages ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigatorpages li a {
+  text-decoration: none;
+  padding: 14px 28px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.7rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+
+.navigatorpages li a:hover {
+  background-color: #0056b3;
+}
+
+.chat-container {
+  max-width: 700px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+#user-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#aboutvideo {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+}
+
+#abouttext {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  padding: 0 1rem;
+  font-family: Dubai, sans-serif, Verdana, sans-serif;
+}
+
+#figmabutton {
+  text-align: center;
+  font-size: 1.1px;
+  color: #333;
+  background-color: palevioletred;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 2;
+  padding: 0 1rem;
+  font-family: Dubai;
+}
