@@ -1,6 +1,6 @@
 # [Legacy]0xSaad-Container
 
-A sandbox website for random personal things.
+A sandbox website for random personal tests.
 
 [From here](https://0xsaadcontainer.netlify.app)
 
@@ -11,4 +11,4 @@ A sandbox website for random personal things.
 
 ### Website goal
 
-For random personal things and more medias related with other projects and maybe a simple portfolio.
+For random personal things and more medias related with other projects and maybe a beta and simple portfolio.
