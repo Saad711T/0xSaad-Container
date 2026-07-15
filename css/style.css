@@ -135,3 +135,16 @@
   padding: 0 1rem;
   font-family: Dubai;
 }
+
+
+    .photo-card {
+      width: auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-family: 'Dubai', sans-serif, Verdana, sans-serif;
+    }
