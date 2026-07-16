@@ -136,15 +136,32 @@
   font-family: Dubai;
 }
 
+.photo-card {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  background-color: #161616;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .photo-card {
-      width: auto;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      font-family: 'Dubai', sans-serif, Verdana, sans-serif;
-    }
+.photo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.45);
+}
+
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-card p {
+  margin: 0;
+  padding: 14px 16px;
+  text-align: right;
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  font-family: 'Dubai', sans-serif, Verdana, sans-serif;
+}
