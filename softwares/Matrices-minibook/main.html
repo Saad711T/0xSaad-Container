@@ -1,23 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>Matrices Minibook</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="bookscript.js"></script>
-</head>
-<body>
-  <div class="navigator-container">
-    <nav class="navigatorpages">
-      <ul>
-        <li><a href="https://0xsaadcontainer.netlify.app">Main Page</a></li>
-      </ul>
-    </nav>
-  </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <br>
-  <div class="box" id="readme">Loading data...</div>
+    <meta name="description"
+          content="Matrices Minibook - مقدمة مبسطة إلى المصفوفات ومكتبة NumPy في Python">
+
+    <title>Hello to Matrices Minibook</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #f6f7f9;
+            color: #24292f;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Tahoma,
+                Arial,
+                sans-serif;
+            line-height: 1.8;
+        }
+
+        .container {
+            width: min(900px, calc(100% - 32px));
+            margin: 50px auto;
+        }
+
+        .book {
+            background: #ffffff;
+            border: 1px solid #d8dee4;
+            border-radius: 10px;
+            padding: 45px;
+            box-shadow: 0 4px 14px rgba(27, 31, 36, 0.06);
+        }
+
+        .logo {
+            display: block;
+            max-width: 180px;
+            max-height: 180px;
+            margin: 0 auto 30px;
+            object-fit: contain;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #d8dee4;
+            font-size: 2rem;
+            line-height: 1.4;
+            text-align: center;
+            color: #1f2328;
+        }
+
+        h2 {
+            margin-top: 42px;
+            margin-bottom: 18px;
+            font-size: 1.45rem;
+            color: #1f2328;
+        }
+
+        p {
+            margin: 0 0 20px;
+            font-size: 1.05rem;
+        }
+
+        .intro {
+            color: #57606a;
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            margin: 28px 0;
+            padding: 18px 20px;
+            border-right: 4px solid #0969da;
+            background: #f6f8fa;
+            color: #424a53;
+            border-radius: 6px;
+        }
+
+        .toc {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .toc li {
+            margin: 0;
+        }
+
+        .toc a {
+            display: block;
+            padding: 12px 16px;
+            border: 1px solid #d8dee4;
+            border-radius: 7px;
+            background: #ffffff;
+            color: #0969da;
+            text-decoration: none;
+            transition: 0.15s ease;
+        }
+
+        .toc a:hover {
+            background: #f6f8fa;
+            border-color: #0969da;
+            transform: translateX(-2px);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #d8dee4;
+            color: #6e7781;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(100% - 20px, 900px);
+                margin: 20px auto;
+            }
+
+            .book {
+                padding: 25px 20px;
+                border-radius: 8px;
+            }
+
+            h1 {
+                font-size: 1.55rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+        <article class="book">
+
+            <img
+                src="logo.png"
+                alt="Matrices Minibook Logo"
+                class="logo"
+            >
+
+            <h1>
+                Hello to Matrices Minibook
+                <br>
+                <small>مرحباً بك في كتاب البرمجة بالمصفوفات</small>
+            </h1>
+
+            <p class="intro">
+                الكتاب يتحدث عن مكتبة <strong>NumPy</strong> في لغة Python،
+                ويقدم تعريفات بسيطة عن عالم المصفوفات ثنائية وثلاثية الأبعاد
+                في البرمجة، بالإضافة إلى طرق إنشائها والتحكم بها والتعامل معها.
+            </p>
+
+            <div class="highlight">
+                مكتبة <strong>NumPy</strong> من أهم المكتبات في Python،
+                وتُستخدم بشكل واسع في الذكاء الاصطناعي، علم البيانات،
+                الحوسبة العلمية والعديد من المجالات البرمجية الأخرى.
+            </div>
+
+            <h2>الفهرس</h2>
+
+            <ul class="toc">
+                <li>
+                    <a href="1.html">
+                        Content page — الفهرس
+                    </a>
+                </li>
+
+                <li>
+                    <a href="2.html">
+                        Introduction to Arrays and Matrices — مقدمة في المصفوفات
+                    </a>
+                </li>
+
+                <li>
+                    <a href="3.html">
+                        Python Simple Review — مراجعة بسيطة لبايثون
+                    </a>
+                </li>
+
+                <li>
+                    <a href="4.html">
+                        Techniques — التقنيات
+                    </a>
+                </li>
+
+                <li>
+                    <a href="5.html">
+                        Usage of NumPy — استخدام مكتبة NumPy
+                    </a>
+                </li>
+
+                <li>
+                    <a href="summary.html">
+                        Summary — الخلاصة
+                    </a>
+                </li>
+            </ul>
+
+            <footer>
+                Matrices Minibook - 0xSaad
+            </footer>
+
+        </article>
+    </main>
 
 </body>
 </html>
