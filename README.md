@@ -1,4 +1,4 @@
-# [Legacy]0xSaad-Container
+# [XMB]0xSaad-Container
 
 A sandbox website for random personal tests.
 
