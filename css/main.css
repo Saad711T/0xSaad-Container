@@ -1,0 +1,429 @@
+/* ============================================================
+   base — resets, typography, layout primitives
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+
+html {
+  font-family: 'IBM Plex Sans Arabic' , -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color-scheme: light dark;
+}
+
+body {
+  min-height: 100dvh;
+  color: var(--fg);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: background 500ms ease, color 500ms ease;
+  /* Solid theme color with a subtle bottom vignette — this is the
+     fallback that shows when the video wallpaper is missing. When
+     the video is present it covers everything (object-fit: cover). */
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(0,0,0,0.35), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover, a:focus-visible { text-decoration: underline; }
+
+kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--kbd-border);
+  background: var(--kbd-bg);
+  color: var(--kbd-fg);
+  box-shadow: inset 0 -1px 0 var(--kbd-shadow);
+}
+
+button { font: inherit; color: inherit; cursor: pointer; }
+
+/* Faint scanlines to add CRT/broadcast feel */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.015) 0 1px,
+      transparent 1px 3px
+    );
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+/* ============================================================
+   top bar (clock, signal)
+   ============================================================ */
+.top-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 14px 22px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+  z-index: 5;
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+.clock { font-size: 0.95rem; letter-spacing: 0.02em; opacity: 0.9; }
+.signal { display: inline-flex; gap: 2px; align-items: flex-end; height: 14px; }
+.signal span {
+  width: 3px; background: var(--fg); opacity: 0.7; border-radius: 1px;
+}
+.signal span:nth-child(1) { height: 4px; }
+.signal span:nth-child(2) { height: 7px; }
+.signal span:nth-child(3) { height: 10px; }
+.signal span:nth-child(4) { height: 13px; }
+
+/* ============================================================
+   bottom hint bar (button prompts)
+   ============================================================ */
+.hint-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  z-index: 5;
+  pointer-events: none;
+  font-size: 0.85rem;
+  color: var(--fg);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+.hint { display: inline-flex; align-items: center; gap: 6px; opacity: 0.9; }
+
+/* ============================================================
+   toast (theme changes, actions)
+   ============================================================ */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 78px;
+  transform: translateX(-50%) translateY(20px);
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--toast-bg);
+  color: var(--toast-fg);
+  border: 1px solid var(--toast-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease;
+  z-index: 20;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ============================================================
+   utilities
+   ============================================================ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0ms !important; transition-duration: 0ms !important; }
+}
+
+/* ============================================================
+   themes — three variants inspired by PS3 XMB seasonal moods
+   [data-theme="black"]  → classic dark
+   [data-theme="gray"]   → silver / cool day
+   [data-theme="beige"]  → warm sepia
+   ============================================================ */
+
+/* --- BLACK (default) --- */
+:root,
+:root[data-theme="black"] {
+  --bg: #05080d;
+  --fg: #eef2f7;
+  --muted: #a7b0bd;
+  --accent: #7fd0ff;
+  --accent-strong: #35a8ff;
+  --card: rgba(14, 20, 30, 0.55);
+  --card-border: rgba(255,255,255,0.10);
+  --divider: rgba(255,255,255,0.08);
+
+  --icon-bg: rgba(255,255,255,0.06);
+  --icon-border: rgba(255,255,255,0.14);
+  --icon-active-glow: 0 0 40px rgba(120,200,255,0.55), 0 0 8px rgba(255,255,255,0.6);
+
+  --toast-bg: rgba(10, 16, 26, 0.85);
+  --toast-fg: #eaf3ff;
+  --toast-border: rgba(255,255,255,0.12);
+
+  --kbd-bg: rgba(255,255,255,0.08);
+  --kbd-fg: #eaf3ff;
+  --kbd-border: rgba(255,255,255,0.18);
+  --kbd-shadow: rgba(255,255,255,0.08);
+}
+
+/* --- GRAY --- */
+:root[data-theme="gray"] {
+  --bg: #b8bcc2;
+  --fg: #101318;
+  --muted: #3a4048;
+  --accent: #1f4b6b;
+  --accent-strong: #12324a;
+  --card: rgba(255,255,255,0.45);
+  --card-border: rgba(0,0,0,0.10);
+  --divider: rgba(0,0,0,0.08);
+
+  --icon-bg: rgba(255,255,255,0.35);
+  --icon-border: rgba(0,0,0,0.12);
+  --icon-active-glow: 0 0 30px rgba(255,255,255,0.85), 0 0 6px rgba(255,255,255,0.9);
+
+  --toast-bg: rgba(255,255,255,0.85);
+  --toast-fg: #0d1116;
+  --toast-border: rgba(0,0,0,0.12);
+
+  --kbd-bg: rgba(255,255,255,0.65);
+  --kbd-fg: #0d1116;
+  --kbd-border: rgba(0,0,0,0.18);
+  --kbd-shadow: rgba(0,0,0,0.08);
+}
+
+/* --- BEIGE --- */
+:root[data-theme="beige"] {
+  --bg: #e9dcc3;
+  --fg: #2a1e10;
+  --muted: #5a4630;
+  --accent: #b8611b;
+  --accent-strong: #8f4711;
+  --card: rgba(255,247,232,0.55);
+  --card-border: rgba(90,60,30,0.18);
+  --divider: rgba(90,60,30,0.14);
+
+  --icon-bg: rgba(255,247,232,0.45);
+  --icon-border: rgba(90,60,30,0.20);
+  --icon-active-glow: 0 0 32px rgba(255, 200, 120, 0.85), 0 0 6px rgba(255, 240, 200, 0.9);
+
+  --toast-bg: rgba(255,247,232,0.9);
+  --toast-fg: #2a1e10;
+  --toast-border: rgba(90,60,30,0.18);
+
+  --kbd-bg: rgba(255,247,232,0.7);
+  --kbd-fg: #2a1e10;
+  --kbd-border: rgba(90,60,30,0.25);
+  --kbd-shadow: rgba(90,60,30,0.10);
+}
+
+/* ============================================================
+   Video wallpaper — sits behind all content.
+   Drop your file at assets/wallpaper.mp4. If it's missing or
+   fails to load, JS removes the element and the theme's solid
+   background color shows through instead.
+   ============================================================ */
+#wallpaper-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;                 /* above canvas (-2), below content */
+  pointer-events: none;
+  opacity: 0;                  /* JS fades in once metadata loads */
+  transition: opacity 700ms ease;
+}
+#wallpaper-video.ready { opacity: 1; }
+
+/* Slight dark wash so text stays readable over any bright frame */
+.wallpaper-tint {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.05) 40%,
+    rgba(0,0,0,0.35) 100%
+  );
+  opacity: 0;
+  transition: opacity 700ms ease;
+}
+#wallpaper-video.ready ~ .wallpaper-tint { opacity: 1; }
+
+/* ============================================================
+   inner page layout (about, blog, individual posts)
+   ============================================================ */
+.page-bar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 22px;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--divider);
+}
+.page-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg);
+  flex: 1;
+}
+.back-btn, .theme-btn {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--fg);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 180ms ease, background 220ms ease;
+  text-decoration: none;
+}
+.back-btn:hover, .theme-btn:hover { transform: translateY(-1px); text-decoration: none; }
+
+.page {
+  max-width: 780px;
+  margin: 32px auto 120px;
+  padding: 0 22px;
+}
+
+.card {
+  padding: 28px 26px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  color: var(--fg);
+}
+
+.card h2 { margin: 0 0 8px; font-size: 1.6rem; }
+.card h3 { margin: 22px 0 8px; font-size: 1.1rem; letter-spacing: 0.03em; }
+.card p  { margin: 0 0 12px; color: var(--fg); line-height: 1.65; }
+.lead    { color: var(--muted) !important; font-size: 1.05rem; }
+
+.bullets { margin: 0; padding-left: 20px; }
+.bullets li { margin: 6px 0; line-height: 1.6; }
+
+.chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li {
+  padding: 6px 12px;
+  background: var(--icon-bg);
+  border: 1px solid var(--icon-border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.avatar {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  display: grid; place-items: center;
+  margin-bottom: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+.avatar-inner {
+  width: 82px; height: 82px; border-radius: 50%;
+  display: grid; place-items: center;
+  color: #fff; font-size: 2.2rem; font-weight: 700;
+  background: rgba(0,0,0,0.15);
+}
+
+/* Blog list */
+.post-list { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-direction: column; gap: 10px; }
+.post-list a.post-link {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: rgba(255,255,255,0.04);
+  color: var(--fg);
+  text-decoration: none;
+  transition: transform 200ms ease, background 220ms ease, border-color 220ms ease;
+}
+.post-list a.post-link:hover,
+.post-list a.post-link:focus-visible,
+.post-list li[aria-selected="true"] a.post-link {
+  transform: translateX(4px);
+  background: var(--card);
+  border-color: var(--accent);
+  outline: none;
+  text-decoration: none;
+}
+.post-link .date {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: 0.85rem;
+  min-width: 92px;
+}
+.post-link .title { font-weight: 600; flex: 1; }
+.post-link .arrow { opacity: 0.5; }
+
+/* Post content */
+.post-meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 18px; }
+.post-body { line-height: 1.75; font-size: 1.02rem; }
+.post-body h2 { margin-top: 28px; font-size: 1.4rem; }
+.post-body h3 { margin-top: 22px; font-size: 1.15rem; }
+.post-body p  { margin: 12px 0; }
+.post-body ul, .post-body ol { padding-left: 22px; }
+.post-body blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 16px 0;
+  padding: 8px 16px;
+  color: var(--muted);
+  background: rgba(255,255,255,0.03);
+  border-radius: 0 8px 8px 0;
+}
+.post-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--icon-bg);
+  border: 1px solid var(--icon-border);
+}
+.post-body pre {
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--divider);
+  overflow-x: auto;
+}
+.post-body pre code {
+  background: transparent; border: 0; padding: 0;
+}
+
+.post-nav {
+  display: flex; justify-content: space-between; gap: 12px; margin-top: 40px;
+}
+.post-nav a {
+  padding: 10px 16px; border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--fg);
+  text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .page { margin-top: 18px; padding: 0 14px; }
+  .card { padding: 22px 18px; border-radius: 14px; }
+  .post-link .date { min-width: 0; font-size: 0.78rem; }
+}

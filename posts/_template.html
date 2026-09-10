@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+  POST TEMPLATE
+  =============
+  1. Copy this file to posts/your-slug.html
+  2. Update <title>, meta description, and the article contents.
+  3. Add the same slug to POSTS at the top of js/data.js.
+  Done — the blog index and XMB pick it up automatically.
+-->
+<html lang="en" data-theme="black">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Post description goes here." />
+  <title>Post title — Saad</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/wallpaper.css" />
+  <link rel="stylesheet" href="../css/page.css" />
+</head>
+<body>
+  <video id="wallpaper-video" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="page-bar">
+    <a href="../blog.html" class="back-btn" aria-label="Back to blog">◀ Blog</a>
+    <h1 class="page-title">Post</h1>
+    <button id="theme-btn" class="theme-btn" aria-label="Cycle theme">◐</button>
+  </header>
+
+  <main class="page">
+    <article class="card">
+      <h2>Post title</h2>
+      <p class="post-meta">YYYY-MM-DD · Saad</p>
+      <div class="post-body">
+        <p>Write your post here.</p>
+      </div>
+
+      <nav class="post-nav" aria-label="Post navigation">
+        <a href="../blog.html">◀ All posts</a>
+        <a href="../index.html">XMB ▶</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="hint-bar" aria-hidden="true">
+    <span class="hint"><kbd>Esc</kbd> Back</span>
+    <span class="hint"><kbd>T</kbd> Theme</span>
+  </footer>
+
+  <script src="../js/audio.js"></script>
+  <script src="../js/wallpaper.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/controller.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

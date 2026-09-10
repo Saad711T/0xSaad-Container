@@ -1,0 +1,77 @@
+/* ============================================================
+   PS3 boot-style intro overlay
+   ============================================================ */
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #000;
+  display: grid;
+  place-items: center;
+  transition: opacity 550ms ease;
+  will-change: opacity;
+  /* soft radial vignette center bloom, like the PS3 hum orb */
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(30, 45, 70, 0.35) 0%,
+      rgba(0, 0, 0, 1) 55%),
+    #000;
+}
+
+#intro.fading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-text {
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-weight: 200;
+  font-size: clamp(2.4rem, 8vw, 5rem);
+  letter-spacing: 0.35em;
+  color: #eaf3ff;
+  text-transform: none;
+  text-shadow:
+    0 0 12px rgba(140, 200, 255, 0.55),
+    0 0 40px rgba(80, 140, 220, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+  transition:
+    opacity 900ms cubic-bezier(.22,.61,.36,1),
+    transform 900ms cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+  user-select: none;
+  padding-left: 0.35em; /* balance out the letter-spacing on the right */
+}
+
+.intro-text.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* thin underline that "expands" — a nod to the PS3 loading hairline */
+.intro-hairline {
+  position: absolute;
+  left: 50%;
+  bottom: calc(50% - 3.2rem);
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: min(280px, 40vw);
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(180, 220, 255, 0.85),
+    transparent
+  );
+  transition: transform 1400ms cubic-bezier(.22,.61,.36,1);
+}
+.intro-text.show ~ .intro-hairline,
+#intro:has(.intro-text.show) .intro-hairline {
+  transform: translateX(-50%) scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-text, #intro, .intro-hairline { transition-duration: 0ms !important; }
+}

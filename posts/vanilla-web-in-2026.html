@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="black">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="You don't need a framework to make something beautiful." />
+  <title>Vanilla web in 2026 — Saad</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/wallpaper.css" />
+  <link rel="stylesheet" href="../css/page.css" />
+</head>
+<body>
+  <video id="wallpaper-video" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="page-bar">
+    <a href="../blog.html" class="back-btn" aria-label="Back to blog">◀ Blog</a>
+    <h1 class="page-title">Post</h1>
+    <button id="theme-btn" class="theme-btn" aria-label="Cycle theme">◐</button>
+  </header>
+
+  <main class="page">
+    <article class="card">
+      <h2>Vanilla web in 2026</h2>
+      <p class="post-meta">2026-07-25 · Saad</p>
+      <div class="post-body">
+        <p>
+          The browser platform is bigger than it was five years ago. CSS grid,
+          container queries, view transitions, native modules, custom
+          properties, the Gamepad API — most of what I used to reach for a
+          library for is now one file away.
+        </p>
+
+        <h2>What you get for free</h2>
+        <ul>
+          <li>Custom properties + <code>data-theme</code> is a full theme system.</li>
+          <li><code>&lt;canvas&gt;</code> and <code>requestAnimationFrame</code> is a whole animation runtime.</li>
+          <li><code>navigator.getGamepads()</code> gives you controller input in ten lines.</li>
+          <li><code>localStorage</code> is a settings store.</li>
+        </ul>
+
+        <h2>What it costs</h2>
+        <p>
+          You write your own components. That's the whole trade. If your site
+          is five pages, that's a good trade. If it's five hundred, use a
+          framework — I'm not a purist.
+        </p>
+
+        <p>
+          This site is proof for me that it's still fun. No <code>node_modules</code>.
+          No dev server. Open <code>index.html</code>, refresh.
+        </p>
+      </div>
+
+      <nav class="post-nav" aria-label="Post navigation">
+        <a href="hello-world.html">◀ Previous</a>
+        <a href="gamepad-api-notes.html">Next ▶</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="hint-bar" aria-hidden="true">
+    <span class="hint"><kbd>Esc</kbd> Back</span>
+    <span class="hint"><kbd>T</kbd> Theme</span>
+  </footer>
+
+  <script src="../js/audio.js"></script>
+  <script src="../js/wallpaper.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/controller.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="black">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="A first post — why I built this site to look like the PS3 dashboard." />
+  <title>Hello, world — Saad</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/wallpaper.css" />
+  <link rel="stylesheet" href="../css/page.css" />
+</head>
+<body>
+  <video id="wallpaper-video" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="page-bar">
+    <a href="../blog.html" class="back-btn" aria-label="Back to blog">◀ Blog</a>
+    <h1 class="page-title">Post</h1>
+    <button id="theme-btn" class="theme-btn" aria-label="Cycle theme">◐</button>
+  </header>
+
+  <main class="page">
+    <article class="card">
+      <h2>Hello, world — and why the XMB still matters</h2>
+      <p class="post-meta">2026-07-20 · Saad</p>
+      <div class="post-body">
+        <p>
+          The PlayStation 3 dashboard — the XrossMediaBar — is the calmest menu
+          Sony ever shipped. Horizontal categories, vertical items, one silky
+          animated wave in the background. It didn't rush you, and it didn't
+          apologize for taking up the whole screen.
+        </p>
+
+        <h2>Why remake it as a personal site</h2>
+        <p>
+          A portfolio is a menu. It's a list of things you want the visitor to
+          be able to reach. Most portfolios treat that like a card grid; the
+          XMB treats it like a place. Landing on the home screen should feel
+          like sitting down, not like arriving at a busy intersection.
+        </p>
+
+        <blockquote>
+          Interfaces should breathe. Every good menu is mostly empty space.
+        </blockquote>
+
+        <h2>What lives here</h2>
+        <ul>
+          <li><strong>Settings</strong> — swap between the three themes (Black, Gray, Beige).</li>
+          <li><strong>About</strong> — who I am and where else I live online.</li>
+          <li><strong>Blog</strong> — this list, plus every post.</li>
+          <li><strong>Projects</strong> — things I've built.</li>
+          <li><strong>Friends</strong> — links I like.</li>
+        </ul>
+
+        <p>
+          Everything works with a keyboard, a controller (Xbox, DualShock, or
+          anything the browser exposes as a standard gamepad), a touch screen,
+          and a mouse. No frameworks. No build step. Just three folders.
+        </p>
+      </div>
+
+      <nav class="post-nav" aria-label="Post navigation">
+        <a href="../blog.html">◀ All posts</a>
+        <a href="vanilla-web-in-2026.html">Next ▶</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="hint-bar" aria-hidden="true">
+    <span class="hint"><kbd>Esc</kbd> Back</span>
+    <span class="hint"><kbd>T</kbd> Theme</span>
+  </footer>
+
+  <script src="../js/audio.js"></script>
+  <script src="../js/wallpaper.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/controller.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

@@ -1,167 +1,142 @@
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 2rem;
-      color: #333;
-    }
-    .box {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      white-space: pre-wrap;
-    }
-    h1 {
-      color: #0066cc;
-    }
+/* ============================================================
+   base — resets, typography, layout primitives
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
 
-.headname {
-  color: rgb(39, 99, 228);
-  text-align: center;
-  display: inline-block;
-  margin: 1rem auto;
-  font-size: 1.7rem;
-  text-decoration: none;
-  font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 14px 28px;
-}
-
-  .heading {
-    background-color: #01645a;
-    padding: 10px;
-    margin-top: -3rem;
-    margin-bottom: 1rem;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 40px;
-    text-align: center;
-    font-family: 'Dubai', sans-serif, Verdana, sans-serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    line-height: 1.6;
-    margin-right: -3rem;
-    margin-left: -3rem;
-    color: white;
-  }
-
-    .heading2 {
-    text-align: center;
-    color: #333;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-
-.navigator-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
-
-.navigatorpages ul {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.navigatorpages li a {
-  text-decoration: none;
-  padding: 14px 28px;
-  background-color: #007bff;
-  color: white;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 1.7rem;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-}
-
-
-.navigatorpages li a:hover {
-  background-color: #0056b3;
-}
-
-.chat-container {
-  max-width: 700px;
-  margin: 60px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #ccc;
-}
-
-#user-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+html {
+  font-family: 'IBM Plex Sans Arabic' , -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color-scheme: light dark;
 }
 
-#aboutvideo {
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 560px;
-  height: 315px;
+body {
+  min-height: 100dvh;
+  color: var(--fg);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: background 500ms ease, color 500ms ease;
+  /* Solid theme color with a subtle bottom vignette — this is the
+     fallback that shows when the video wallpaper is missing. When
+     the video is present it covers everything (object-fit: cover). */
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(0,0,0,0.35), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
 }
 
-#abouttext {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #555;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  padding: 0 1rem;
-  font-family: Dubai, sans-serif, Verdana, sans-serif;
+a { color: var(--accent); text-decoration: none; }
+a:hover, a:focus-visible { text-decoration: underline; }
+
+kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--kbd-border);
+  background: var(--kbd-bg);
+  color: var(--kbd-fg);
+  box-shadow: inset 0 -1px 0 var(--kbd-shadow);
 }
 
-#figmabutton {
-  text-align: center;
-  font-size: 1.1px;
-  color: #333;
-  background-color: palevioletred;
-  margin: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  line-height: 2;
-  padding: 0 1rem;
-  font-family: Dubai;
+button { font: inherit; color: inherit; cursor: pointer; }
+
+/* Faint scanlines to add CRT/broadcast feel */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.015) 0 1px,
+      transparent 1px 3px
+    );
+  mix-blend-mode: overlay;
+  opacity: 0.35;
 }
 
-.photo-card {
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-  background-color: #161616;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ============================================================
+   top bar (clock, signal)
+   ============================================================ */
+.top-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 14px 22px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+  z-index: 5;
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+.clock { font-size: 0.95rem; letter-spacing: 0.02em; opacity: 0.9; }
+.signal { display: inline-flex; gap: 2px; align-items: flex-end; height: 14px; }
+.signal span {
+  width: 3px; background: var(--fg); opacity: 0.7; border-radius: 1px;
+}
+.signal span:nth-child(1) { height: 4px; }
+.signal span:nth-child(2) { height: 7px; }
+.signal span:nth-child(3) { height: 10px; }
+.signal span:nth-child(4) { height: 13px; }
+
+/* ============================================================
+   bottom hint bar (button prompts)
+   ============================================================ */
+.hint-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  z-index: 5;
+  pointer-events: none;
+  font-size: 0.85rem;
+  color: var(--fg);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+.hint { display: inline-flex; align-items: center; gap: 6px; opacity: 0.9; }
+
+/* ============================================================
+   toast (theme changes, actions)
+   ============================================================ */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 78px;
+  transform: translateX(-50%) translateY(20px);
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--toast-bg);
+  color: var(--toast-fg);
+  border: 1px solid var(--toast-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease;
+  z-index: 20;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ============================================================
+   utilities
+   ============================================================ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
 }
 
-.photo-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.45);
-}
-
-.photo-card img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-}
-
-.photo-card p {
-  margin: 0;
-  padding: 14px 16px;
-  text-align: right;
-  color: #f0f0f0;
-  font-size: 0.95rem;
-  font-family: 'Dubai', sans-serif, Verdana, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0ms !important; transition-duration: 0ms !important; }
 }

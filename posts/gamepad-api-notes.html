@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="black">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Wiring an Xbox and DualShock controller into a web page." />
+  <title>Notes on the Gamepad API — Saad</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/wallpaper.css" />
+  <link rel="stylesheet" href="../css/page.css" />
+</head>
+<body>
+  <video id="wallpaper-video" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="page-bar">
+    <a href="../blog.html" class="back-btn" aria-label="Back to blog">◀ Blog</a>
+    <h1 class="page-title">Post</h1>
+    <button id="theme-btn" class="theme-btn" aria-label="Cycle theme">◐</button>
+  </header>
+
+  <main class="page">
+    <article class="card">
+      <h2>Notes on the Gamepad API</h2>
+      <p class="post-meta">2026-07-28 · Saad</p>
+      <div class="post-body">
+        <p>
+          The <code>Gamepad</code> API is one of those web APIs that is small,
+          old, and just works. Plug in a controller, press a button, listen
+          for <code>gamepadconnected</code>. That's the whole handshake.
+        </p>
+
+        <h2>The polling loop</h2>
+        <p>
+          There are no events for buttons — you poll. Once per animation frame:
+        </p>
+        <pre><code>function poll() {
+  for (const gp of navigator.getGamepads()) {
+    if (!gp) continue;
+    if (gp.buttons[0].pressed) console.log("A");
+  }
+  requestAnimationFrame(poll);
+}
+requestAnimationFrame(poll);</code></pre>
+
+        <h2>Standard mapping</h2>
+        <p>
+          Most modern controllers (Xbox One/Series, DualShock 4/5, 8BitDo Pro)
+          report as <code>mapping: "standard"</code>, so you can hard-code
+          button indices: <code>0</code>=A/✕, <code>1</code>=B/○,
+          <code>4</code>=LB/L1, <code>5</code>=RB/R1, <code>9</code>=Start.
+        </p>
+
+        <h2>Edge detection + repeat</h2>
+        <p>
+          For menu navigation you want key-repeat semantics — press once
+          triggers immediately, hold triggers after a short delay. The trick
+          is to remember which buttons were already pressed on the previous
+          frame and only dispatch on the transition. See
+          <code>js/controller.js</code> in this repo for how I wired it.
+        </p>
+
+        <blockquote>
+          The nicest thing you can do for a controller user is make sure the
+          UI never eats their inputs.
+        </blockquote>
+      </div>
+
+      <nav class="post-nav" aria-label="Post navigation">
+        <a href="vanilla-web-in-2026.html">◀ Previous</a>
+        <a href="../blog.html">All posts ▶</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="hint-bar" aria-hidden="true">
+    <span class="hint"><kbd>Esc</kbd> Back</span>
+    <span class="hint"><kbd>T</kbd> Theme</span>
+  </footer>
+
+  <script src="../js/audio.js"></script>
+  <script src="../js/wallpaper.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/controller.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

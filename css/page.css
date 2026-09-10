@@ -1,0 +1,167 @@
+/* ============================================================
+   inner page layout (about, blog, individual posts)
+   ============================================================ */
+.page-bar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 22px;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--divider);
+}
+.page-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg);
+  flex: 1;
+}
+.back-btn, .theme-btn {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--fg);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 180ms ease, background 220ms ease;
+  text-decoration: none;
+}
+.back-btn:hover, .theme-btn:hover { transform: translateY(-1px); text-decoration: none; }
+
+.page {
+  max-width: 780px;
+  margin: 32px auto 120px;
+  padding: 0 22px;
+}
+
+.card {
+  padding: 28px 26px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  color: var(--fg);
+}
+
+.card h2 { margin: 0 0 8px; font-size: 1.6rem; }
+.card h3 { margin: 22px 0 8px; font-size: 1.1rem; letter-spacing: 0.03em; }
+.card p  { margin: 0 0 12px; color: var(--fg); line-height: 1.65; }
+.lead    { color: var(--muted) !important; font-size: 1.05rem; }
+
+.bullets { margin: 0; padding-left: 20px; }
+.bullets li { margin: 6px 0; line-height: 1.6; }
+
+.chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li {
+  padding: 6px 12px;
+  background: var(--icon-bg);
+  border: 1px solid var(--icon-border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.avatar {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  display: grid; place-items: center;
+  margin-bottom: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+.avatar-inner {
+  width: 82px; height: 82px; border-radius: 50%;
+  display: grid; place-items: center;
+  color: #fff; font-size: 2.2rem; font-weight: 700;
+  background: rgba(0,0,0,0.15);
+}
+
+/* Blog list */
+.post-list { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-direction: column; gap: 10px; }
+.post-list a.post-link {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: rgba(255,255,255,0.04);
+  color: var(--fg);
+  text-decoration: none;
+  transition: transform 200ms ease, background 220ms ease, border-color 220ms ease;
+}
+.post-list a.post-link:hover,
+.post-list a.post-link:focus-visible,
+.post-list li[aria-selected="true"] a.post-link {
+  transform: translateX(4px);
+  background: var(--card);
+  border-color: var(--accent);
+  outline: none;
+  text-decoration: none;
+}
+.post-link .date {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: 0.85rem;
+  min-width: 92px;
+}
+.post-link .title { font-weight: 600; flex: 1; }
+.post-link .arrow { opacity: 0.5; }
+
+/* Post content */
+.post-meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 18px; }
+.post-body { line-height: 1.75; font-size: 1.02rem; }
+.post-body h2 { margin-top: 28px; font-size: 1.4rem; }
+.post-body h3 { margin-top: 22px; font-size: 1.15rem; }
+.post-body p  { margin: 12px 0; }
+.post-body ul, .post-body ol { padding-left: 22px; }
+.post-body blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 16px 0;
+  padding: 8px 16px;
+  color: var(--muted);
+  background: rgba(255,255,255,0.03);
+  border-radius: 0 8px 8px 0;
+}
+.post-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--icon-bg);
+  border: 1px solid var(--icon-border);
+}
+.post-body pre {
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--divider);
+  overflow-x: auto;
+}
+.post-body pre code {
+  background: transparent; border: 0; padding: 0;
+}
+
+.post-nav {
+  display: flex; justify-content: space-between; gap: 12px; margin-top: 40px;
+}
+.post-nav a {
+  padding: 10px 16px; border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--fg);
+  text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .page { margin-top: 18px; padding: 0 14px; }
+  .card { padding: 22px 18px; border-radius: 14px; }
+  .post-link .date { min-width: 0; font-size: 0.78rem; }
+}

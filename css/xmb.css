@@ -1,0 +1,222 @@
+/* ============================================================
+   XMB cross-media bar
+   Horizontal categories in the middle. Selected category expands
+   items vertically. Everything is positioned relative to a fixed
+   crossbar row.
+   ============================================================ */
+
+.xmb {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.xmb-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Horizontal ribbon of category icons — sits high on desktop like
+   the real PS3 crossbar, leaving room for the items to stack below. */
+.xmb-row {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 96px;
+  transition: transform 380ms cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+  padding: 0 24px;
+}
+
+.xmb-cat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 84px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 250ms ease, opacity 250ms ease;
+  opacity: 0.55;
+}
+
+.xmb-cat[aria-selected="true"] { opacity: 1; }
+
+.xmb-cat .icon {
+  width: 84px; height: 84px;
+  border-radius: 18px;
+  display: grid; place-items: center;
+  background: var(--icon-bg);
+  border: 1px solid var(--icon-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 260ms cubic-bezier(.22,.61,.36,1),
+              box-shadow 260ms ease,
+              background 300ms ease;
+  color: var(--fg);
+  font-size: 34px;
+  line-height: 1;
+  overflow: hidden;
+}
+.xmb-cat .icon img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+.xmb-cat[aria-selected="true"] .icon {
+  transform: scale(1.22);
+  box-shadow: var(--icon-active-glow);
+  background: linear-gradient(180deg, var(--icon-bg), rgba(255,255,255,0.02));
+}
+
+.xmb-cat .label {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 200ms ease, transform 200ms ease;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+  white-space: nowrap;
+}
+.xmb-cat[aria-selected="true"] .label {
+  opacity: 1; transform: translateY(0);
+}
+
+/* Vertical items column stacked below the selected category */
+.xmb-items {
+  position: absolute;
+  top: calc(28% + 90px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 320px;
+  max-width: min(90vw, 520px);
+  padding: 20px 4px;
+  pointer-events: auto;
+}
+
+.xmb-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: transform 220ms cubic-bezier(.22,.61,.36,1),
+              background 220ms ease,
+              border-color 220ms ease,
+              opacity 220ms ease;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.55;
+  transform: translateX(-14px);
+  animation: slideIn 380ms cubic-bezier(.22,.61,.36,1) both;
+}
+
+.xmb-item[aria-selected="true"] {
+  opacity: 1;
+  transform: translateX(0);
+  background: var(--card);
+  border-color: var(--card-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.28);
+}
+
+.xmb-item .thumb {
+  width: 46px; height: 46px;
+  border-radius: 10px;
+  display: grid; place-items: center;
+  background: var(--icon-bg);
+  border: 1px solid var(--icon-border);
+  font-size: 22px;
+  color: var(--fg);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.xmb-item .thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+.xmb-item .meta {
+  display: flex; flex-direction: column; gap: 2px;
+  min-width: 0;
+}
+.xmb-item .title {
+  font-size: 1rem; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--fg);
+  text-shadow: 0 1px 1px rgba(0,0,0,0.30);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.xmb-item .sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 0.55; transform: translateX(-14px); }
+}
+
+/* ============================================================
+   mobile — stack the XMB vertically, larger touch targets,
+   items slide over from the right instead of dropping down
+   ============================================================ */
+@media (max-width: 720px) {
+  .xmb-row {
+    gap: 30px;
+    top: 22%;
+    padding: 0 12px;
+  }
+  .xmb-cat { min-width: 64px; }
+  .xmb-cat .icon { width: 64px; height: 64px; font-size: 26px; border-radius: 14px; }
+  .xmb-cat .label { font-size: 0.7rem; }
+
+  .xmb-items {
+    top: auto;
+    bottom: 74px;
+    left: 0;
+    right: 0;
+    transform: none;
+    min-width: 0;
+    max-width: none;
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+    max-height: 55vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .xmb-item {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    background: var(--card);
+    border-color: var(--card-border);
+  }
+  .xmb-item[aria-selected="true"] {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .hint-bar { display: none; }
+}
+
+/* touch swipe area is the whole body */

@@ -1,0 +1,35 @@
+/* ============================================================
+   Video wallpaper — sits behind all content.
+   Drop your file at assets/wallpaper.mp4. If it's missing or
+   fails to load, JS removes the element and the theme's solid
+   background color shows through instead.
+   ============================================================ */
+#wallpaper-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;                 /* above canvas (-2), below content */
+  pointer-events: none;
+  opacity: 0;                  /* JS fades in once metadata loads */
+  transition: opacity 700ms ease;
+}
+#wallpaper-video.ready { opacity: 1; }
+
+/* Slight dark wash so text stays readable over any bright frame */
+.wallpaper-tint {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.05) 40%,
+    rgba(0,0,0,0.35) 100%
+  );
+  opacity: 0;
+  transition: opacity 700ms ease;
+}
+#wallpaper-video.ready ~ .wallpaper-tint { opacity: 1; }

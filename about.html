@@ -1,43 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="black">
 <head>
-  <meta charset="UTF-8">
-  <title>SaadAI</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/aistyle.css">
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="scripts/aiscript.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="About Saad — developer, gamer, tinkerer." />
+  <title>About — Saad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/wallpaper.css" />
+  <link rel="stylesheet" href="css/page.css" />
 </head>
 <body>
+  <video id="wallpaper-video" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="scanlines" aria-hidden="true"></div>
 
-  <div class="navigator-container">
-    <nav class="navigatorpages">
-      <ul>
-        <li><a href="index.html">Main Page</a></li>
+  <header class="page-bar">
+    <a href="index.html" class="back-btn" aria-label="Back to XMB">◀ XMB</a>
+    <h1 class="page-title">About</h1>
+    <button id="theme-btn" class="theme-btn" aria-label="Cycle theme">◐</button>
+  </header>
+
+  <main class="page">
+    <article class="card">
+      <h2>Hi, I'm Saad.</h2>
+      <p class="lead">
+      Junior Data Scientist who builds Lunatic creativity products and Passionate about distributed systems and data engineering .
+      </p>
+
+      <h3>What I do</h3>
+      <ul class="bullets">
+        <li>Front-end Projects — vanilla, React, and everything between.</li>
+        <li>Design systems and micro-services .</li>
+        <li>Small games and creative-coding experiments.</li>
       </ul>
-    </nav>
-  </div>
-  <br>
-  <main>
-    <iframe id="aboutvideo" width="560" height="315" src="https://www.youtube.com/embed/FuBn2FKBld0?si=h4Yr4coZgQmfdvWt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+      <h3>Stack</h3>
+      <ul class="chips">
+        <li>HTML</li><li>CSS</li><li>JavaScript</li>
+        <li>TypeScript</li><li>C++</li><li>Python</li><li>C#</li>
+        <li>Java</li><li>Git</li><li>Databases</li><li>Data Science</li>
+        <li>Data Warehouses</li><li>Distributed Systems</li><li>Web Development</li>
+
+      </ul>
+
+      <h3>Elsewhere</h3>
+      <ul class="bullets">
+        <li><a href="https://github.com/Saad711T" target="_blank" rel="noopener">GitHub — @Saad711T</a></li>
+        <li><a href="mailto:saadlegendcontact78@gmail.com">Email</a></li>
+      </ul>
+    </article>
   </main>
 
-  <h3 id="abouttext">حنا شباب المتفائل بدون قياس
-اصعب حاجة تبقى سهلة من الأساس 
-خلف الأجمل واقع أجمل حسب خيالي
-حسب خياااالي
-نضرب بيبان المستقبل إلى السحاب
-نسبح عكس الريح وننجح ولا نهاب 
-لين الصعبة تصبح سهلة والمر حالي والمر حالي
-اركد فديتك هاهاهاها حنا شباب البومب
-</h3>
+  <footer class="hint-bar" aria-hidden="true">
+    <span class="hint"><kbd>Esc</kbd> / <kbd>○</kbd> Back</span>
+    <span class="hint"><kbd>T</kbd> Theme</span>
+  </footer>
 
-
-
-<div>
-<a href="testfigma.html"  id="figmabutton">First test on Figma</a>
-
-
-</div>
+  <script src="js/wallpaper.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/controller.js"></script>
+  <script src="js/page.js"></script>
 </body>
 </html>

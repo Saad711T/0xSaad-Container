@@ -1,37 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="black">
 <head>
-  <meta charset="UTF-8">
-  <title>0xSaad Sandbox</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="scripts/script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Saad's personal portfolio & blog — inspired by the PlayStation 3 XMB." />
+  <title>Saad — XMB Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/wallpaper.css" />
+  <link rel="stylesheet" href="css/xmb.css" />
+  <link rel="stylesheet" href="css/intro.css" />
 </head>
 <body>
-  <h1 class="heading">0xSaad Sandbox & Container</h1>
-  <h3 class="heading2" style="font-size: 1.5rem;">By : Saad Almalki</h3>
-  <div style="display: flex; justify-content: center;">
-  <a class="headname" href="https://github.com/Saad711T"><strong>My Github Account</strong></a>
+  <!-- PS3-style boot intro. Removed by js/intro.js after the animation. -->
+  <div id="intro" aria-hidden="true">
+    <div class="intro-text">0xSaad</div>
+    <div class="intro-hairline"></div>
   </div>
-<div class="navigator-container">
-  <nav class="navigatorpages">
-    <ul>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="intersets.html">Interests</a></li>
-      <li><a href="ai.html">AI</a></li>
-      <li><a href="about.html">About</a></li>
-      <li id="1"><a href="gallery.html">Gallery</a></li>
-      <li id="2"><a href="study.html">Study</a></li>
-      <li id="3"><a href="museum.html">Museum</a></li>
-      <li id="4"><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</div>
-<br>
-  <div class="box" id="readme">Loading data...</div>
 
-    <script src="https://keepandroidopen.org/banner.js"></script>
+  <video id="wallpaper-video" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="scanlines" aria-hidden="true"></div>
 
+  <header class="top-bar">
+    <div class="clock" id="clock" aria-label="Current time"></div>
+    <div class="signal" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </header>
 
+  <main id="xmb" class="xmb" role="menubar" aria-label="Main XMB menu">
+    <!-- Categories are rendered by js/xmb.js from data -->
+  </main>
+
+  <footer class="hint-bar" aria-hidden="true">
+    <span class="hint"><kbd>◀</kbd><kbd>▶</kbd> Category</span>
+    <span class="hint"><kbd>▲</kbd><kbd>▼</kbd> Item</span>
+    <span class="hint"><kbd>Enter</kbd> / <kbd>✕</kbd> Select</span>
+    <span class="hint"><kbd>T</kbd> Theme</span>
+    <span class="hint"><kbd>M</kbd> Mute</span>
+    All rights reserved to Sony Interactive Entertainment
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/intro.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/wallpaper.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/xmb.js"></script>
+  <script src="js/controller.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
